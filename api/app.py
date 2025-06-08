@@ -1,11 +1,16 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 import pandas as pd
 import os
 from flask_cors import CORS
 
 # Initialize Flask app with CORS support
-app = Flask(__name__)
+app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
 CORS(app)  # Enable CORS for all routes
+
+# Add this for static files
+@app.route('/static/<path:path>')
+def serve_static(path):
+    return send_from_directory(os.path.join('..', '..', 'static'), path)
 
 def load_blood_banks():
     """Load and clean blood bank data with robust error handling"""
