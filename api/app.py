@@ -7,6 +7,9 @@ from flask_cors import CORS
 app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
 CORS(app)  # Enable CORS for all routes
 
+print("Current directory:", os.getcwd())
+print("CSV path:", os.path.abspath(os.path.join('data', 'blood_banks_india.csv')))
+
 # Add this for static files
 @app.route('/static/<path:path>')
 def serve_static(path):
