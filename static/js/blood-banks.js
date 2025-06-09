@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // API Request
-        fetch('http://localhost:5000/search-blood-banks', {
+        fetch('/search-blood-banks', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
