@@ -4,9 +4,7 @@ import os
 from flask_cors import CORS
 
 # Initialize Flask app with CORS support
-app = Flask(__name__, static_folder='static', template_folder='templates')
-
-# app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
+app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
 CORS(app)  # Enable CORS for all routes
 
 print("Current directory:", os.getcwd())
@@ -44,7 +42,7 @@ def load_blood_banks():
 @app.route('/blood-banks')
 def blood_banks():
     """Serve the main blood bank search page"""
-    return render_template('blood-banks.html')
+    return render_template('base.html')
 
 @app.route('/search-blood-banks', methods=['POST'])
 def search_blood_banks():
