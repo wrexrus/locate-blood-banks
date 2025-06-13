@@ -4,7 +4,8 @@ import os
 from flask_cors import CORS
 
 # Initialize Flask app with CORS support
-app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
+app = Flask(__name__, static_folder='static', template_folder='templates')
+# app = Flask(__name__, static_folder='../../static', template_folder='../../templates')
 CORS(app)  # Enable CORS for all routes
 
 print("Current directory:", os.getcwd())
